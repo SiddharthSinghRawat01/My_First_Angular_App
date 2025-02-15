@@ -5,15 +5,17 @@ import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HomeComponent, HeaderComponent],
+  imports: [ HomeComponent, HeaderComponent],
   template: `
     <app-header />
-    <app-home />
+    <main >
+      <app-home />
+    </main>
   `,
   styles: [
     `
-    p {
-      background-color: red;
+    main {
+      padding: 16px;
     }
     `
   ], // we can write styles here
