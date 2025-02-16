@@ -1,10 +1,13 @@
 <h3>Todos List</h3>
 
+<!-- <p *ngIf="!todoItems().length">Loading ...</p> this is what we do in old times -->
+
+@if(!todoItems().length){ <!-- new method -->
+    <p>Loading ...</p> 
+}
+
 <ul class="todos">
     @for (todo of todoItems(); track todo.id) {
-        <li class="todos__items">
-           <input id="-{{todo.id}}" type="checkbox" [value]="todo.completed" >
-           <label for="todo-{{todo.id}}">{{todo.title}}</label>
-        </li>   
+        <app-todo-item (todoToggled)="updataTodoItem($event)" [todo]="todo"/>
     }
 </ul>
